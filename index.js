@@ -16,16 +16,20 @@
     return ms
   }
 
-  var tzto = {
+  var tzto = function(offset) {
+    return parse(offset)
+  }
 
-    minutes: function(offset) {
-      return parse(offset) / 60 / 1000
-    },
+  tzto.seconds = function(offset) {
+    return parse(offset) / 1000
+  }
 
-    hours: function(offset) {
-      return parse(offset) / 60 / 60 / 1000
-    }
+  tzto.minutes = function(offset) {
+    return parse(offset) / 60 / 1000
+  }
 
+  tzto.hours = function(offset) {
+    return parse(offset) / 60 / 60 / 1000
   }
 
   return tzto

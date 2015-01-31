@@ -3,6 +3,10 @@ var assert = require('assert')
 
 describe('tzto', function(){
   describe('converts negative offset', function(){
+    it('to ms', function(){
+      assert.equal( tzto("-01:00"), -60*60*1000 )
+      assert.equal( tzto("-01:15"), -75*60*1000 )
+    })
     it('to minutes', function(){
       assert.equal( tzto.minutes("-01:00"), -60 )
       assert.equal( tzto.minutes("-01:15"), -75 )
@@ -13,6 +17,10 @@ describe('tzto', function(){
     })
   })
   describe('converts positive offset', function(){
+    it('to ms', function(){
+      assert.equal( tzto("01:00"), 60*60*1000 )
+      assert.equal( tzto("01:15"), 75*60*1000 )
+    })
     it('to minutes', function(){
       assert.equal( tzto.minutes("01:00"), 60 )
       assert.equal( tzto.minutes("01:15"), 75 )
